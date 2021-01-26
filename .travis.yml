@@ -6,3 +6,16 @@ before-install:
   - docker build -t reactapp .
 script:
   - docker run -e CI=true reactapp npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react-one"
+  env: "DockerReactOne-env"
+  bucket_name: "elasticbeanstalk-us-east-1-319068213696"
+  bucket_path: "docker-react-one"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
