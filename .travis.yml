@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before-install:
+  - docker build -t reactApp .
+script:
+  - docker run reactApp npm run test -- --coverage
