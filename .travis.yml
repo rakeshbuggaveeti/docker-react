@@ -4,4 +4,4 @@ services:
 before-install:
   - docker build -t reactapp .
 script:
-  - docker run reactapp npm run test -- --coverage
+  - docker run -e CI=true reactapp npm run test -- --coverage
