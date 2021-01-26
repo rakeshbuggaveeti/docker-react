@@ -2,6 +2,6 @@ sudo: required
 services:
   - docker
 before-install:
-  - docker build -t reactApp .
+  - docker build -t reactapp .
 script:
-  - docker run reactApp npm run test -- --coverage
+  - docker run reactapp npm run test -- --coverage
