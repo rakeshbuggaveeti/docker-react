@@ -3,7 +3,8 @@ services:
   - docker
 before-install:
   - docker build -t reactapp .
-  
+  - gem install rake
+
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
